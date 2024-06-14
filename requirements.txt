@@ -3,3 +3,4 @@ openai
 langchain
 llama-index
 llama-index-llms-openai
+chardet
