@@ -1,6 +1,6 @@
 import streamlit as st
 from llama_index.llms.openai import OpenAI
-import llama-index
+
 
 st.title('Quickstart App')
 
