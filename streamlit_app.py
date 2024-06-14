@@ -1,5 +1,6 @@
 import streamlit as st
 from llama_index.llms.openai import OpenAI
+import chardet
 
 
 st.title('Quickstart App')
@@ -20,7 +21,10 @@ with st.form('my_form'):
     if submitted and openai_api_key.startswith('sk-'):
         if uploaded_file:
             # Read the content of the uploaded file
-            file_content = uploaded_file.read().decode('utf-8')           
+            file_content = uploaded_file.read()
+            result = chardet.detect(file_content)
+            encoding = result['encoding']
+            file_content = file_content.decode(encoding)
             generate_response(text, file_content)
         else:
             generate_response(text) 
