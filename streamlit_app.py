@@ -23,7 +23,8 @@ with st.form('my_form'):
             # file_content = uploaded_file.read().decode('utf-8')
             file_content = uploaded_file.read()
             # Combine the prompt and file content
-            combined_text = f"{text}\n\n{file_content}"
+            # combined_text = f"{text}\n\n{file_content}"
+            combined_text = file_content
             generate_response(combined_text)
         else:
-            generate_response(text)
+            generate_response(text) 
