@@ -20,11 +20,16 @@ with st.form('my_form'):
         st.warning('Please enter your OpenAI API key!', icon='⚠')
     if submitted and openai_api_key.startswith('sk-'):
         if uploaded_file:
-            # Read the content of the uploaded file
-            file_content = uploaded_file.read()
-            result = chardet.detect(file_content)
-            encoding = result['encoding']
-            file_content = file_content.decode(encoding)
+             file_content = uploaded_file.read()
+            for encoding in known_encodings:
+                try:
+                    file_content = file_content.decode(encoding)
+                    break
+                except UnicodeDecodeError:
+                    continue
+            else:
+                st.error("Unable to decode file content with known encodings")
+                return
             generate_response(text, file_content)
         else:
-            generate_response(text) 
+            generate_response(text)
