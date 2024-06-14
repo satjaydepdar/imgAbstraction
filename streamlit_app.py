@@ -12,7 +12,7 @@ def generate_response(input_text):
 
 with st.form('my_form'):
     text = st.text_area('Enter your prompt:')
-    uploaded_file = st.file_uploader('Upload a file', type=['txt', 'pdf', 'docx'])
+    uploaded_file = st.file_uploader('Upload a file', type=['txt', 'pdf', 'docx', '.png'])
     submitted = st.form_submit_button('Submit')
     if not openai_api_key.startswith('sk-'):
         st.warning('Please enter your OpenAI API key!', icon='⚠')
