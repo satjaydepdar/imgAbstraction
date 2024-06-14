@@ -20,7 +20,8 @@ with st.form('my_form'):
     if submitted and openai_api_key.startswith('sk-'):
         if uploaded_file:
             # Read the content of the uploaded file
-            file_content = uploaded_file.read().decode('utf-8')
+            # file_content = uploaded_file.read().decode('utf-8')
+            file_content = uploaded_file.read().
             # Combine the prompt and file content
             combined_text = f"{text}\n\n{file_content}"
             generate_response(combined_text)
