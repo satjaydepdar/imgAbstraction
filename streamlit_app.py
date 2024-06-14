@@ -6,9 +6,9 @@ st.title('Quickstart App')
 
 openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
 
-def generate_response(input_text):
-    llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
-    response = llm(input_text)
+def generate_response(a):
+    llm = OpenAI(temperature=0.7, openai_api_key = openai_api_key)
+    response=llm(a)
     st.info(response)
 
 with st.form('my_form'):
